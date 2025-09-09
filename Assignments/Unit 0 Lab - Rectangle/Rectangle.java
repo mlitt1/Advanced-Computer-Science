@@ -1,16 +1,11 @@
 public class Rectangle {
+    int length;
+    int width;
 
-    public int length;
-    public int width;
-    
-    public String toString(){
-        return ("This rectangle has a length of 6 and a width of 7. Its area is 42");
+    public Rectangle(int intLength, int intWidth){
+        length = 6;
+        width = 7;
     }
-
-    public void Rectange(int inputLength, int inputWidth) {
-        length = inputLength;
-        width = inputWidth;
-    }    
 
     public int getLength(){
         return length;
@@ -20,13 +15,17 @@ public class Rectangle {
         return width;
     }
 
-
-    public void setLength(int input){
-        length = input;
+    public int calculateArea(){
+        int area = length * width;
+        return area;
     }
-    
-    public void setWidth(int input){
-        width = input;
+
+    public String toString(){
+        return ("This rectangle has a length of" + length + "and a width of 7." + width + "Its area is 42");
+    }
+
+    public boolean equals(Rectangle other){
+        return (length == other.length &&)
     }
 
 }
