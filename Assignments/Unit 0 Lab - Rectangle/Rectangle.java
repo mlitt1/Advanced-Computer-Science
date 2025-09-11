@@ -2,7 +2,7 @@ public class Rectangle {
     int length;
     int width;
 
-    public Rectangle(int intLength, int intWidth){
+    public Rectangle(){
         length = 6;
         width = 7;
     }
@@ -15,9 +15,18 @@ public class Rectangle {
         return width;
     }
 
+    public 
+
     public int calculateArea(){
-        int area = length * width;
-        return area;
+        return length * width;
+    }
+
+    public int calculatePerimeter(){
+        return ((2 * length) + (2 * width));
+    }
+
+    public double calculateDiagonal(){
+        return Math.sqrt((length * length) + (width * width));
     }
 
     public String toString(){
@@ -25,7 +34,7 @@ public class Rectangle {
     }
 
     public boolean equals(Rectangle other){
-        return (length == other.length &&)
+        return (length == other.length && width == other.width);
     }
 
 }
