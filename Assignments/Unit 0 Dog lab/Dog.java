@@ -1,0 +1,91 @@
+public class Dog {
+    
+    private String name;
+    private String ownerName;
+    private int age;
+    private int dogId;
+    private char dogChar;
+    private String dogTag;
+    private boolean stillInFacility;
+
+    // constructors
+
+    public Dog(String name, String ownerName, int age, int dogId) {
+        this.name = name;
+        this.ownerName = ownerName;
+        this.age = age;
+        this.dogId = dogId;
+        this.dogChar = generateDogChar();
+        this.dogTag = generateDogTag();
+        this.stillInFacility = isStillInFacility();
+    }    
+
+    public Dog() {
+        this.name = "Morgan";
+        this.ownerName = "Sigma";
+        this.age = 15;
+        this.dogId = 677;
+        this.dogChar = 9;
+        this.dogTag = "67 is tuff";
+        this.stillInFacility = true;
+    }
+
+    // getters
+    // setters
+    
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getOwnerName() {
+        return ownerName;
+    }
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
+    public int getDogId() {
+        return dogId;
+    }
+    public void setDogId(int dogId) {
+        this.dogId = dogId;
+    }
+    public char getDogChar() {
+        return dogChar;
+    }
+    public void setDogChar(char dogChar) {
+        this.dogChar = dogChar;
+    }
+    public String getDogTag() {
+        return dogTag;
+    }
+    public void setDogTag(String dogTag) {
+        this.dogTag = dogTag;
+    }
+    public boolean isStillInFacility() {
+        return stillInFacility;
+    }
+    public void setStillInFacility(boolean stillInFacility) {
+        this.stillInFacility = stillInFacility;
+    }
+
+    // methods
+
+    public boolean equals(Dog other) {
+        if other.age == age && other.name == name && other.dogTag = dogTag {
+            return true;
+        }
+    }
+
+    public String toString(String name, String ownerName, int age, int dogId, char dogChar, String dogTag, boolean stillInFacility) {
+        dogTag = "" + dogId + dogChar;
+        return name + "is a good dog. They are" + age + "years old and belong to" + ownerName + "." +  isStillInFacility() + "For employee use only: DogTag is" + dogTag;
+    }
+}

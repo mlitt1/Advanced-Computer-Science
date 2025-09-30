@@ -1,11 +1,10 @@
-public class Line<a, b> {
+public class Line {
     // instance variables
     private int a;
     private int b;
     private int c;
 
     // constructors
-    
     public Line(int a, int b, int c) {
         this.a = a;
         this.b = b;
@@ -13,7 +12,6 @@ public class Line<a, b> {
     }
 
     // getters
-    
     public int getA() {
         return a;
     }
@@ -27,32 +25,32 @@ public class Line<a, b> {
     }
 
     // setters
-    
-    public void setA() {
+    public void setA(int a) {
         this.a = a;
     }
 
-    public void setB() {
+    public void setB(int b) {
         this.b = b;
     }
 
-    public void setC() {
+    public void setC(int c) {
         this.c = c;
     }
 
     // methods
-    
     public double calculateSlope() {
-        return -a / b;
+        return -(double) a / b;  // cast to double to avoid integer division
     }
 
     public boolean isCoordinateOnLine(int x, int y) {
-        if ((a)x + (b)y + (c) == 0) {
-            return false;
-        } else;
+        return a * x + b * y + c == 0;
     }
 
     public String toString() {
-        return "Equation: " + (a) + "x + " + (b)+ "y + " + (c) + "= 0";
+        return "Equation: " + a + "x + " + b + "y + " + c + " = 0";
+    }
+
+    public boolean equals(Line other) {
+        return this.a == other.a && this.b == other.b && this.c == other.c;
     }
 }
