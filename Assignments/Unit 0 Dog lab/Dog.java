@@ -6,7 +6,7 @@ public class Dog {
     private int dogId;
     private char dogChar;
     private String dogTag;
-    private boolean stillInFacility;
+    private static boolean stillInFacility;
 
     // constructors
 
@@ -25,7 +25,7 @@ public class Dog {
         this.ownerName = "Sigma";
         this.age = 15;
         this.dogId = 677;
-        this.dogChar = 9;
+        this.dogChar = generateDogChar();
         this.dogTag = "67 is tuff";
         this.stillInFacility = true;
     }
@@ -79,13 +79,31 @@ public class Dog {
     // methods
 
     public boolean equals(Dog other) {
-        if other.age == age && other.name == name && other.dogTag = dogTag {
+        if (other.age == age && other.name == name && other.dogTag == dogTag) {
             return true;
-        }
+        } else;
+        return false;
     }
 
     public String toString(String name, String ownerName, int age, int dogId, char dogChar, String dogTag, boolean stillInFacility) {
-        dogTag = "" + dogId + dogChar;
+        
         return name + "is a good dog. They are" + age + "years old and belong to" + ownerName + "." +  isStillInFacility() + "For employee use only: DogTag is" + dogTag;
+    }
+
+    public String generateDogTag() {
+        return dogTag = "" + dogId + dogChar;
+    }
+
+    public char generateDogChar() {
+        int dig3 = dogId % 10;
+        int dig2 = dogId/10 % 10;
+        int dig1 = dogId/100 % 10;
+        return dogChar = (char) ('F' + (dig1 + dig2 + dig3) % 10);
+    }
+
+    public static String pickup(Dog dog, String personName) {
+        if (stillInFacility = false) {
+            return 
+        }
     }
 }
