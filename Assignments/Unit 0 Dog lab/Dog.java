@@ -6,7 +6,7 @@ public class Dog {
     private int dogId;
     private char dogChar;
     private String dogTag;
-    private static boolean stillInFacility;
+    private boolean stillInFacility;
 
     // constructors
 
@@ -16,8 +16,8 @@ public class Dog {
         this.age = age;
         this.dogId = dogId;
         this.dogChar = generateDogChar();
-        this.dogTag = generateDogTag();
-        this.stillInFacility = isStillInFacility();
+        this.dogTag = PawesomeUtils.generateDogTag(this.dogId, this.dogChar);
+        this.stillInFacility = getStillInFacility();
     }    
 
     public Dog() {
@@ -69,7 +69,7 @@ public class Dog {
     public void setDogTag(String dogTag) {
         this.dogTag = dogTag;
     }
-    public boolean isStillInFacility() {
+    public boolean getStillInFacility() {
         return stillInFacility;
     }
     public void setStillInFacility(boolean stillInFacility) {
@@ -87,11 +87,7 @@ public class Dog {
 
     public String toString(String name, String ownerName, int age, int dogId, char dogChar, String dogTag, boolean stillInFacility) {
         
-        return name + "is a good dog. They are" + age + "years old and belong to" + ownerName + "." +  isStillInFacility() + "For employee use only: DogTag is" + dogTag;
-    }
-
-    public String generateDogTag() {
-        return dogTag = "" + dogId + dogChar;
+        return name + "is a good dog. They are" + age + "years old and belong to" + ownerName + "." +  getStillInFacility() + "For employee use only: DogTag is" + dogTag;
     }
 
     public char generateDogChar() {
@@ -100,10 +96,5 @@ public class Dog {
         int dig1 = dogId/100 % 10;
         return dogChar = (char) ('F' + (dig1 + dig2 + dig3) % 10);
     }
-
-    public static String pickup(Dog dog, String personName) {
-        if (stillInFacility = false) {
-            return 
-        }
-    }
+    
 }
