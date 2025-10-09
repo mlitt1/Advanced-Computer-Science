@@ -15,6 +15,9 @@ public class PawesomeUtils {
     public static void checkIn(Dog dog, String personName) {
         if (dog.getOwnerName().equals(personName)) {
             dog.setStillInFacility(true);
+            System.out.println("This dog is valid!!!");
+        } else {
+            System.out.println("This dog is invalid, it is a counterfeit dog");
         }
     }
 
@@ -27,7 +30,6 @@ public class PawesomeUtils {
         }
     }
 
-
     public static boolean validateDogTag(Dog dog) {
         String newDogTag2 = dog.getDogTag();
         String numDogTag2 = String.valueOf(newDogTag2);
@@ -36,13 +38,39 @@ public class PawesomeUtils {
         } else {
             return false;
         }
+        
     }
 
-    public static char generateDogChar() {
-        int dig3 = dogId % 10;
-        int dig2 = dogId / 10 % 10;
-        int dig1 = dogId / 100 % 10;
-        return dogChar = (char) ('F' + (dig1 + dig2 + dig3) % 10);
+    public static char generateDogChar(Dog dog) {
+        int dogId2 = dog.getDogId();
+        char dogChar = dog.getDogChar();
+        int dig3 = dogId2 % 10;
+        int dig2 = dogId2 / 10 % 10;
+        int dig1 = dogId2 / 100 % 10;
+        dogChar = (char) ('F' + (dig1 + dig2 + dig3) % 10);
+        return dogChar;
     }
 
+    public static int convertToHumanAge(Dog dog) {
+        int age = dog.getAge();
+        if (age == 1) {
+            return 15;
+        } else if (age == 2) {
+            return 24;
+        } else {
+            return 24 + ((age - 2) * age);
+        }
+        
+    }
+
+    public static int convertToDogYears(int humanYears) {
+        if (humanYears <= 15) {
+            return 1;
+        } else if (humanYears <= 15 && humanYears >= 24) {
+            return 2;
+        } else {
+            return (int)((humanYears + 2) / humanYears) - 24;
+        }
+            
+    }
 }
