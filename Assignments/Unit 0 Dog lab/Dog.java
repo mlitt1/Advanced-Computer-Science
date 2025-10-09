@@ -90,11 +90,4 @@ public class Dog {
         return name + "is a good dog. They are" + age + "years old and belong to" + ownerName + "." +  getStillInFacility() + "For employee use only: DogTag is" + dogTag;
     }
 
-    public char generateDogChar() {
-        int dig3 = dogId % 10;
-        int dig2 = dogId/10 % 10;
-        int dig1 = dogId/100 % 10;
-        return dogChar = (char) ('F' + (dig1 + dig2 + dig3) % 10);
-    }
-    
 }
