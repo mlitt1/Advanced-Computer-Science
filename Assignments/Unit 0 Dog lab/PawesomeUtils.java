@@ -70,7 +70,7 @@ public class PawesomeUtils {
             return 2;
         } else {
             return (int)((humanYears + 2) / humanYears) - 24;
-        }
             
+        }
     }
 }
