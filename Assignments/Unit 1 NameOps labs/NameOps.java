@@ -27,6 +27,23 @@ public class NameOps {
     }
 
     public static String findFirstName(String name) {
-        return name.substring(indexOfFirstSpace(" "));
+        if (name.indexOf(" ") < 1 ) {
+            return name;
+        } else {
+            return name.substring(0, indexOfFirstSpace(name));
+        }
+    }
+
+    public static String findLastName(String name) {
+        int last = name.lastIndexOf(" ");
+        if (last == -1) {
+            return name;
+        } else {
+            return name.substring(last + 1);
+        }
+    }
+
+    public static String findMiddleName(String name) {
+        
     }
 }
