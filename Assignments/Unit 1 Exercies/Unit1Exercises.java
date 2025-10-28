@@ -50,7 +50,7 @@ public class Unit1Exercises {
      * withoutEnd("coding") -> "odin"
      */
     public static String withoutEnd(String str) {
-        String part1 = str.substring(2, str.length());
+        String part1 = str.substring(1, str.length() - 1);
         return part1;
     }
 
@@ -68,7 +68,13 @@ public class Unit1Exercises {
      * comboString("aaa", "b") -> "baaab"
      */
     public static String comboString(String a, String b) {
-        return "";
+        int stringA = a.length();
+        int stringB = b.length();
+        if (stringA > stringB) {
+            return b + a + b;
+        } else {
+            return a + b + a;
+        }
     }
 
     // method: left2
@@ -83,7 +89,9 @@ public class Unit1Exercises {
      * left2("Hi") -> "Hi"
      */
     public static String left2(String str) {
-        return "";
+        String firstTwo = str.substring(0, 2);
+        String restOfString = str.substring(3, str.length());
+        return restOfString + firstTwo;
     }
 
     // method: middleThree
@@ -99,7 +107,8 @@ public class Unit1Exercises {
      * middleThree("solving") -> "lvi"
      */
     public static String middleThree(String str) {
-        return "";
+        String oddString = str.substring(3, 6);
+        return oddString;
     }
 
     // method: withoutEnd2
@@ -114,7 +123,8 @@ public class Unit1Exercises {
      * withoutEnd2("ab") -> ""
      */
     public static String withoutEnd2(String str) {
-        return "";
+        String withoutEndString = str.substring(1, str.length() -1);
+        return withoutEndString;
     }
 
     // method: stringEnds
@@ -129,7 +139,9 @@ public class Unit1Exercises {
      * stringEnds("Chocolate", 1) -> "Ce"
      */
     public static String stringEnds(String str, int n) {
-        return "";
+        String firstLetters = str.substring(0, n);
+        String secondLetters = str.substring(str.length() - n, str.length());
+        return firstLetters + secondLetters;
     }
 
     // method: hasBad
@@ -145,6 +157,16 @@ public class Unit1Exercises {
      * hasBad("xxbadxx") -> false
      */
     public static boolean hasBad(String str) {
+        if (str.length() >= 3) {
+            if (str.substring(0, 3).equals("bad")) {
+                return true;
+            }
+        }
+        if (str.length() >= 4) {
+            if (str.substring(1, 4).equals("bad")) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -160,6 +182,12 @@ public class Unit1Exercises {
      * countVowels("") -> 0
      */
     public static int countVowels(String input) {
+        int numA = input.indexOf("a");
+        int numE = input.indexOf("e");
+        int numI = input.indexOf("i");
+        int numO = input.indexOf("o");
+        int numU = input.indexOf("u");
+        int vowelCount = input.indexOf(numA, numE, numI, numO, numU);
         return 0;
     }
 
