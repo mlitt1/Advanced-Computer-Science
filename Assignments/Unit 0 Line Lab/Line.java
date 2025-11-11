@@ -1,4 +1,5 @@
 public class Line {
+    
     // instance variables
     private int a;
     private int b;

@@ -12,9 +12,8 @@ public class Unit1Exercises {
      * helloName("X") -> "Hello X!"
      */
 
-    public static String helloName(String name) {
-        System.out.println("\"Hello " + name + "!\"");
-        return "";
+    public static String helloName(String name) {    
+        return "Hello " + name + "!";
     }
 
     // method: makeOutWord
@@ -34,8 +33,7 @@ public class Unit1Exercises {
     public static String makeOutWord(String out, String word) {
         String firstPart = out.substring(0, 2);
         String secondPart = out.substring(2, 4);
-        System.out.println(firstPart + word + secondPart);
-        return "";
+        return firstPart + word + secondPart;
     }
 
     // method: withoutEnd
@@ -89,9 +87,12 @@ public class Unit1Exercises {
      * left2("Hi") -> "Hi"
      */
     public static String left2(String str) {
-        String firstTwo = str.substring(0, 2);
-        String restOfString = str.substring(3, str.length());
-        return restOfString + firstTwo;
+        if (str.length() >= 2) {
+            String firstTwo = str.substring(0, 2);
+            String restOfString = str.substring(2, str.length());
+            return restOfString + firstTwo;
+        }
+        return "";
     }
 
     // method: middleThree
@@ -107,8 +108,19 @@ public class Unit1Exercises {
      * middleThree("solving") -> "lvi"
      */
     public static String middleThree(String str) {
-        String oddString = str.substring(3, 6);
-        return oddString;
+        if (str.length() >= 6) {
+            String oddString = str.substring(2, 5);
+            return oddString;
+        } else if (str.length() == 5) {
+            String oddString = str.substring(1, 4);
+            return oddString;
+        } else if (str.length() == 4) {
+            String oddString = str.substring(0, 3);
+            return oddString;
+        } else if (str.length() == 3) {
+            return str;
+        }
+        return "";
     }
 
     // method: withoutEnd2
@@ -123,8 +135,12 @@ public class Unit1Exercises {
      * withoutEnd2("ab") -> ""
      */
     public static String withoutEnd2(String str) {
-        String withoutEndString = str.substring(1, str.length() -1);
-        return withoutEndString;
+        if (str.length() >= 2) {
+            String withoutEndString = str.substring(1, str.length() - 1);
+            return withoutEndString;
+        } else {
+            return "";
+        }
     }
 
     // method: stringEnds
@@ -182,13 +198,18 @@ public class Unit1Exercises {
      * countVowels("") -> 0
      */
     public static int countVowels(String input) {
-        int numA = input.indexOf("a");
-        int numE = input.indexOf("e");
-        int numI = input.indexOf("i");
-        int numO = input.indexOf("o");
-        int numU = input.indexOf("u");
-        int vowelCount = input.indexOf(numA, numE, numI, numO, numU);
-        return 0;
+        if (input.isEmpty()) {
+            return 0;
+        }
+        int count = 0;
+        String s = input.toLowerCase();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+                count++;
+            }
+        }
+        return count;
     }
 
     // method: countCode
@@ -204,7 +225,17 @@ public class Unit1Exercises {
      * countCode("cozexxcope") -> 2
      */
     public static int countCode(String str) {
-        return 0;
+        if (str.isEmpty() || str.length() < 4) {
+            return 0;
+        }
+        int count = 0;
+        String s = str.toLowerCase();
+        for (int i = 0; i <= s.length() - 4; i++) {
+            if (s.charAt(i) == 'c' && s.charAt(i + 1) == 'o' && s.charAt(i + 3) == 'e') {
+                count++;
+            }
+        }
+        return count;
     }
 
 }

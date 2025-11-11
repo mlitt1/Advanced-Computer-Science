@@ -36,5 +36,12 @@ public class Unit1ExercisesTester {
         System.out.println(Unit1Exercises.hasBad("xBadxxx"));
         System.out.println(Unit1Exercises.hasBad("Badxxxx"));
         
+        System.out.println(Unit1Exercises.countVowels("Hello"));
+        System.out.println(Unit1Exercises.countVowels("abc"));
+        System.out.println(Unit1Exercises.countVowels(""));
+
+        System.out.println(Unit1Exercises.countCode("codexxcode"));
+        System.out.println(Unit1Exercises.countCode("aaacodebbb"));
+        System.out.println(Unit1Exercises.countCode("cozexxcope"));
     }
 }
