@@ -94,14 +94,12 @@ public class Robot {
      * Commands the robot to pick up an item, move forward or turn around
      */
     public void move() {
-        
         if (hallway == null || hallway.length == 0) {
             return;
         }
         if (position < 0 || position >= hallway.length) {
             return;
         }
-
         if (hallway[position] > 0) {
             hallway[position] = hallway[position] - 1;
 
@@ -136,7 +134,13 @@ public class Robot {
 
     public int clearHall() {
         int count = 0;
-        // to-do: implement this method
+        displayState();
+
+        while (!hallIsClear()) {
+            move();
+            count++;
+            displayState();
+        }
 
         return count;
     }
@@ -147,8 +151,18 @@ public class Robot {
      * @return a boolean value indicating if the hallway contains any items
      */
     public boolean hallIsClear() {
-        // to-do: implement this method
+        // Return true when there are no items (all zeros) in the hallway.
+        if (hallway == null || hallway.length == 0) {
+            return true;
+        }
 
+        for (int i = 0; i < hallway.length; i++) {
+            if (hallway[i] > 0) {
+                // Found an item — hallway is not clear
+                return false;
+            }
+        }
+        // No items found
         return true;
     }
 
