@@ -9,6 +9,21 @@ public class Robot {
 
     // constructors
     public Robot(int[] hallwayToClean, int startingPosition) {
+        hallway = new int[hallwayToClean.length];
+
+        for (int i = 0; i < hallwayToClean.length; i++) {
+            hallway[i] = Math.max(0, hallwayToClean[i]); // replace negatives with 0
+        }
+
+        if (startingPosition < 0) {
+            position = 0;
+        } else if (startingPosition >= hallway.length) {
+            position = hallway.length - 1;
+        } else {
+            position = startingPosition;
+        }
+
+        isFacingRight = true;
         // to-do: implement constructor
     }
 
@@ -20,11 +35,13 @@ public class Robot {
      * @return true if the robot is blocked by a wall, false otherwise
      */
     public int[] getHallway() {
-        hallway = new int[] {1, 2, 4, 5};
         return hallway;
     }
 
     public void setHallway(int[] hallway) {
+        for (int i = 0; i < getHallway().length; i++) {
+            hallway[i] = Math.max(0, hallway[i]); // replace negatives with 0
+        }
         this.hallway = hallway;
     }
 
@@ -36,17 +53,7 @@ public class Robot {
         // if caller passed a valid index, use it
         if (position >= 0 && position < hallway.length) {
             this.position = position;
-            return;
         }
-        // otherwise treat the argument as a value and find its index in the hallway
-        for (int i = 0; i < hallway.length; i++) {
-            if (hallway[i] == position) {
-                this.position = i;
-                return;
-            }
-        }
-        // fallback: not found — default to 0 (or choose another sentinel as needed)
-        this.position = 0;
     }
 
     public boolean isFacingRight() {
@@ -63,20 +70,17 @@ public class Robot {
 
 
     public void displayState() {
-        for (int i = 0; i < hallway.length; i++) {
-            System.out.print(getHallway()[i] + " ");
+        // print hallway
+        for (int n : hallway) {
+            System.out.print(n + " ");
         }
         System.out.println();
 
+        // print robot position & direction
         for (int i = 0; i < position; i++) {
             System.out.print("  ");
         }
-
-        if (isFacingRight) {
-            System.out.println(">");
-        } else {
-            System.out.println("<");
-        }
+        System.out.println(isFacingRight ? ">" : "<");
     }
 
     public boolean isRobotBlockedByWall() {
@@ -94,32 +98,18 @@ public class Robot {
      * Commands the robot to pick up an item, move forward or turn around
      */
     public void move() {
-        if (hallway == null || hallway.length == 0) {
-            return;
-        }
-        if (position < 0 || position >= hallway.length) {
-            return;
-        }
+        // pick up item if present
         if (hallway[position] > 0) {
-            hallway[position] = hallway[position] - 1;
-
+            hallway[position]--;
             if (hallway[position] > 0) {
                 return;
             }
-
-        } else {
-
         }
 
+        // move or turn
         if (!isRobotBlockedByWall()) {
-            // move forward
-            if (isFacingRight) {
-                position = position + 1;
-            } else {
-                position = position - 1;
-            }
+            position += isFacingRight ? 1 : -1;
         } else {
-            // blocked: reverse direction only
             isFacingRight = !isFacingRight;
         }
     }
@@ -146,28 +136,21 @@ public class Robot {
     }
 
     /**
-     * This method determines if the hallway contains any items.
-     * 
-     * @return a boolean value indicating if the hallway contains any items
-     */
+    * This method determines if the hallway contains any items.
+    * 
+    * @return a boolean value indicating if the hallway contains any items
+    */
     public boolean hallIsClear() {
-        // Return true when there are no items (all zeros) in the hallway.
-        if (hallway == null || hallway.length == 0) {
-            return true;
-        }
-
-        for (int i = 0; i < hallway.length; i++) {
-            if (hallway[i] > 0) {
-                // Found an item — hallway is not clear
+        for (int v : hallway) {
+            if (v > 0) {
                 return false;
             }
         }
-        // No items found
         return true;
     }
 
     /*
-     * Displays the current state of the robot and the hallway.
-     */
+    * Displays the current state of the robot and the hallway.
+    */
 
 }
