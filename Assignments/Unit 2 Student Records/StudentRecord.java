@@ -4,9 +4,9 @@ public class StudentRecord {
     private int[] scores;
 
     // constructors
-    public StudentRecord(String name, int[] scores) {
+    public StudentRecord(String name, int[] length) {
         this.name = name;
-        this.scores = scores;
+        this.scores = length;
     }
 
     // getters

@@ -3,10 +3,14 @@ public class Course {
     private String courseName;
     private StudentRecord[] enrolledStudents;
 
-    // constructors
     public Course(String courseName, StudentRecord[] enrolledStudents) {
         this.courseName = courseName;
         this.enrolledStudents = enrolledStudents;
+    }
+
+    public Course(String courseName, int maxEnrollment) {
+        this.courseName = courseName;
+        this.enrolledStudents = new StudentRecord[maxEnrollment];
     }
 
     // getters
@@ -32,7 +36,12 @@ public class Course {
         String result = "== " + courseName + " ==\n";
 
         for (int i = 0; i < enrolledStudents.length; i++) {
-            result += (i + 1) + ".) " + enrolledStudents[i].toString();
+            if (enrolledStudents[i] != null) {
+                result += (i + 1) + ".) " + enrolledStudents[i];
+            } else {
+                result += (i + 1) + ".) [empty]";
+            }
+
             if (i != enrolledStudents.length - 1) {
                 result += "\n";
             }
@@ -46,10 +55,12 @@ public class Course {
         String bestName = "";
 
         for (int i = 0; i < enrolledStudents.length; i++) {
-            double avg = enrolledStudents[i].getFinalAverage();
-            if (avg > best) {
-                best = avg;
-                bestName = enrolledStudents[i].getName();
+            if (enrolledStudents[i] != null) {
+                double avg = enrolledStudents[i].getFinalAverage();
+                if (avg > best) {
+                    best = avg;
+                    bestName = enrolledStudents[i].getName();
+                }
             }
         }
 
@@ -61,11 +72,13 @@ public class Course {
         int count = 0;
 
         for (int i = 0; i < enrolledStudents.length; i++) {
-            int test = enrolledStudents[i].getTestScore(testIndex);
+            if (enrolledStudents[i] != null) {
+                int test = enrolledStudents[i].getTestScore(testIndex);
 
-            if (test != -1) {
-                sum += test;
-                count++;
+                if (test != -1) {
+                    sum += test;
+                    count++;
+                }
             }
         }
 
@@ -74,5 +87,68 @@ public class Course {
         }
 
         return sum / count;
+    }
+
+    public boolean isFull() {
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] == null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void enrollStudent(StudentRecord student) {
+        if (student == null || isFull()) {
+            return;
+        }
+
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] == null) {
+                enrolledStudents[i] = student;
+                return; // stop once student is enrolled
+            }
+        }
+    }
+
+    public boolean dropStudent(StudentRecord student) {
+        if (student == null) {
+            return false;
+        }
+
+        String name = student.getName();
+
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] != null &&
+                enrolledStudents[i].getName().equals(name)) {
+
+                enrolledStudents[i] = null;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public int countEnrolledStudents() {
+        int count = 0;
+
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            if (enrolledStudents[i] != null) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public void increaseClassSizeBy(int sizeIncrease) {
+        StudentRecord[] biggerArray =
+            new StudentRecord[enrolledStudents.length + sizeIncrease];
+
+        for (int i = 0; i < enrolledStudents.length; i++) {
+            biggerArray[i] = enrolledStudents[i];
+        }
+
+        enrolledStudents = biggerArray;
     }
 }

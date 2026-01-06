@@ -1,157 +1,195 @@
 public class Utils {
 
-    // do Utils.variable.nameOfStaticMethod to implement
+//     // how to maek an array of diferent lengths
+//     int[] intArray = new int[10];
+//     String[] stringArray = {"Bob", "Joe", "Frank"};
+//     boolean[] booleantArray = new boolean[10];
+//     // do Utils.variable.nameOfStaticMethod to implement
+//     // detect if a string is empty
+//     public static boolean isEmpty(String text) {
+//         return text == null || text.trim().isEmpty();
+//     }
+// removes a boolean from the array
+//     public boolean removeBoolean(Something thing) {
+//         for (int i = 0; i < this.count; i++) {
+//             if (this.array[i].equals(thing)) {
+//                 this.array[i] = null;
+//                 return true;
+//         }
+//     }
+//     return false;
+// }
+//     // captializes first letter
+//     public static String capitalize(String word) {
+//         if (isEmpty(word)) {
+//             return "";
+//         }
+//         return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+//     }
+//     // compares to see if string is equal
+//     public static boolean equalsIgnoreCase(String a, String b) {
+//         if (a == null || b == null) {
+//             return false;
+//         }
+//         return a.equalsIgnoreCase(b);
+//     }
 
-    // detect if a string is empty
-    public static boolean isEmpty(String text) {
-        return text == null || text.trim().isEmpty();
-    }
+//     // Counts the amoutn of times test is used with "count"
+//     public static String repeat(String text, int count) {
+//         String result = "";
+//         for (int i = 0; i < count; i++) {
+//             result += text;
+//         }
+//         return result;
+//     }
 
-    // captializes first letter
-    public static String capitalize(String word) {
-        if (isEmpty(word)) {
-            return "";
-        }
-        return word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
-    }
+//     // generates a random int between two numbers
+//     public static int randomInRange(int low, int high) {
+//         if (low > high) {
+//             int temp = low;
+//             low = high;
+//             high = temp;
+//         }
+//         return (int)(Math.random() * (high - low)) + low;
+//     }
 
-    // compares to see if string is equal
-    public static boolean equalsIgnoreCase(String a, String b) {
-        if (a == null || b == null) {
-            return false;
-        }
-        return a.equalsIgnoreCase(b);
-    }
+//     //if a varibalbe is inrange of low/high return true else false
+//     public static boolean inRange(int value, int low, int high) {
+//         return value >= low && value <= high;
+//     }
 
-    // Counts the amoutn of times test is used with "count"
-    public static String repeat(String text, int count) {
-        String result = "";
-        for (int i = 0; i < count; i++) {
-            result += text;
-        }
-        return result;
-    }
+//     // keeps a number between a minimum and maximum
+//     public static int constraint(int value, int min, int max) {
+//         if (value < min) return min;
+//         if (value > max) return max;
+//         return value;
+//     }
 
-    // generates a random int between two numbers
-    public static int randomInRange(int low, int high) {
-        if (low > high) {
-            int temp = low;
-            low = high;
-            high = temp;
-        }
-        return (int)(Math.random() * (high - low)) + low;
-    }
+//     // converts a string number into an int
+//     public static int stringToInt(String num) {
+//         try {
+//             return Integer.parseInt(num);
+//         } catch (NumberFormatException e) {
+//             return 0;
+//         }
+//     }
 
-    //if a varibalbe is inrange of low/high return true else false
-    public static boolean inRange(int value, int low, int high) {
-        return value >= low && value <= high;
-    }
+//     // converts a double into an int
+//     public static double parseDoubleSafe(String num) {
+//         try {
+//             return Double.parseDouble(num);
+//         } catch (NumberFormatException e) {
+//             return 0.0;
+//         }
+//     }
 
-    // keeps a number between a minimum and maximum
-    public static int constraint(int value, int min, int max) {
-        if (value < min) return min;
-        if (value > max) return max;
-        return value;
-    }
+//     // converts a string into a boolean
+//     public static boolean parseBooleanSafe(String value) {
+//         return Boolean.parseBoolean(value);
+//     }
 
-    // converts a string number into an int
-    public static int stringToInt(String num) {
-        try {
-            return Integer.parseInt(num);
-        } catch (NumberFormatException e) {
-            return 0;
-        }
-    }
+//     // if is even return true
+//     public static boolean isEven(int n) {
+//         return n % 2 == 0;
+//     }
 
-    // converts a double into an int
-    public static double parseDoubleSafe(String num) {
-        try {
-            return Double.parseDouble(num);
-        } catch (NumberFormatException e) {
-            return 0.0;
-        }
-    }
+//     // if is odd return true
+//     public static boolean isOdd(int n) {
+//         return n % 2 != 0;
+//     }
 
-    // converts a string into a boolean
-    public static boolean parseBooleanSafe(String value) {
-        return Boolean.parseBoolean(value);
-    }
+//     // counts num of vowels in a word
+//     public static int countVowels(String input) {
+//         if (input.isEmpty()) {
+//             return 0;
+//         }
+//         int count = 0;
+//         String s = input.toLowerCase();
+//         for (int i = 0; i < s.length(); i++) {
+//             char c = s.charAt(i);
+//             if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+//                 count++;
+//             }
+//         }
+//         return count;
+//     }
 
-    // if is even return true
-    public static boolean isEven(int n) {
-        return n % 2 == 0;
-    }
+//     // counts amount of times code is in a word
+//     public static int countCode(String str) {
+//         if (str.isEmpty() || str.length() < 4) {
+//             return 0;
+//         }
+//         int count = 0;
+//         String s = str.toLowerCase();
+//         for (int i = 0; i <= s.length() - 4; i++) {
+//             if (s.charAt(i) == 'c' && s.charAt(i + 1) == 'o' && s.charAt(i + 3) == 'e') {
+//                 count++;
+//             }
+//         }
+//         return count;
+//     }
 
-    // if is odd return true
-    public static boolean isOdd(int n) {
-        return n % 2 != 0;
-    }
+//     // sum of digits of a word
+//     public static int calculateSumOfDigits(String str) {
+//         int sum = 0;
+//         for (int i = 0; i < str.length(); i++) {
+//             char ch = str.charAt(i);
+//             if (Character.isDigit(ch)) {
+//                 sum += Character.getNumericValue(ch);
+//             }
+//         }
+//         return sum;
+//     }
+//   public void convertBoolean() {
+//        // Example: private boolean[] x; can change to private int[] x; or private String[] x; etc
+//     for (int i = 0; i < this.x.length; i++) {
+//         if (!this.x[i]) {
+//             this.x[i] = true;
+//             // change to int or string 
+//             break; // Stop after done
+//         }
+//     }
+// }
 
-    // counts num of vowels in a word
-    public static int countVowels(String input) {
-        if (input.isEmpty()) {
-            return 0;
-        }
-        int count = 0;
-        String s = input.toLowerCase();
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
-                count++;
-            }
-        }
-        return count;
-    }
+//     //makes a string and adds up the length
+//     public static String generateCatChar(String catId) {
+//         int sum = 0;
+//         for (int i = 0; i < catId.length(); i++) {
+//             char ch = catId.charAt(i);
+//             if (Character.isDigit(ch)) {
+//                 sum += ch - '0';
+//             }
+//         }
+//         int num = sum % 26;
+//         char c = (char) ('A' + num);
+//         return String.valueOf(c);
+//     }
+//     creates a sequence of 
+//     public String sequenceOfFlags() {
+//         String sequence = "(";
+    
+//         for (int i = 0; i < this.flags.length; i++) {
+//         if (this.flags[i] == true) {
+//             sequence = sequence + "true"; 
+//         } else {
+//             sequence = sequence + "false";
+//         }
+//         if (i < this.flags.length - 1) {
+//              sequence = sequence + ", ";
+//          }
+//      }
+        // sequence = sequence + ")";
+        // return sequence;
+        // }
 
-    // counts amount of times code is in a word
-    public static int countCode(String str) {
-        if (str.isEmpty() || str.length() < 4) {
-            return 0;
-        }
-        int count = 0;
-        String s = str.toLowerCase();
-        for (int i = 0; i <= s.length() - 4; i++) {
-            if (s.charAt(i) == 'c' && s.charAt(i + 1) == 'o' && s.charAt(i + 3) == 'e') {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    // sum of digits of a word
-    public static int calculateSumOfDigits(String str) {
-        int sum = 0;
-        for (int i = 0; i < str.length(); i++) {
-            char ch = str.charAt(i);
-            if (Character.isDigit(ch)) {
-                sum += Character.getNumericValue(ch);
-            }
-        }
-        return sum;
-    }
-
-    //makes a string and adds up the length
-    public static String generateCatChar(String catId) {
-        int sum = 0;
-        for (int i = 0; i < catId.length(); i++) {
-            char ch = catId.charAt(i);
-            if (Character.isDigit(ch)) {
-                sum += ch - '0';
-            }
-        }
-        int num = sum % 26;
-        char c = (char) ('A' + num);
-        return String.valueOf(c);
-    }
-
-    //validate id if else return rnadom number (converted from int to string)
-    public static String validateCatId(String catId) {
-        if (generateCatId().length() >= 1000 && generateCatId().length() <= 9999) {
-            return catId;
-        } else {
-            return String.valueOf(generateRandomNumber(1000, 10000));
-        }
-    }
+//     //validate id if else return rnadom number (converted from int to string)
+//     public static String validateCatId(String catId) {
+//         if (generateCatId().length() >= 1000 && generateCatId().length() <= 9999) {
+//             return catId;
+//         } else {
+//             return String.valueOf(generateRandomNumber(1000, 10000));
+//         }
+//     }
     
     // public static String pickup(Dog dog, String personName) {
     //     if (dog.getOwnerName().equals(personName)) {
@@ -159,6 +197,16 @@ public class Utils {
     //         return dog.getName() + " has been picked up by their owner " + dog.getOwnerName() + ".";
     //     }
     //     return dog.getName() + " cannot leave yet, safety first!";
+    // }
+    // 
+    // public int countSetFlags() {
+    //     int count = 0;
+    //     for (boolean flag : this.flags) {
+    //         if (flag) {
+    //             count++;
+    //         }
+    //     }
+    //     return count;
     // }
 
     // public static void checkIn(Dog dog, String personName) {
