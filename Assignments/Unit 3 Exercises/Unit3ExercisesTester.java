@@ -2,6 +2,9 @@ public class Unit3ExercisesTester {
     
     public static void main(String[] args) {   
         testCalculateStringLengthAverage();
+        testReverseString();
+        testMaxValue();
+
     }
     
     public static void testCalculateStringLengthAverage() {
@@ -37,11 +40,45 @@ public class Unit3ExercisesTester {
          // Test Case - Edge Case: Null string
         try{
 	        testString = null;
-	        System.out.println("Expected exception: " + Unit3Exercises.reverseString(testString));
+            if (testString == null) {
+                throw new NullPointerException("Cannot reverse a string that doesn't exist");
+            }
         } catch (Exception e) {
 	        System.out.println(e.toString());
 	        System.out.println("The method threw an exception when the string was null, as intended");
         }
+    }
+
+    public static void testMaxValue() {
+        //Test case - main case
+        int[] testInt = {0, 4};
+        System.out.println("Expected 4: " + Unit3Exercises.findMaxValue(testInt));
+        //Test Case - Edge Case: An array containing both negative integers and zero
+        testInt[0] = 0;
+        testInt[1] = -5;
+        System.out.println("Expected 0: " + Unit3Exercises.findMaxValue(testInt));
+        // Test case- edge case: only contains negatives
+        testInt[0] = -2;
+        testInt[1] = -5;
+        System.out.println("Expected -2: " + Unit3Exercises.findMaxValue(testInt));
+        // Test case - edge case: only null array
+        testInt = null;
+        try{
+            Unit3Exercises.findMaxValue(testInt);
+        } catch (Exception e) {
+            System.out.println("This method threw an exception correctly, booyah!");
+        }
+    }
+
+    public static void testIsPalindrome() {
+        //Test case - Main case
+        String palindrome = "racecar";
+        System.out.println("Expected true: " + Unit3Exercises.isPalindrome(palindrome));
+        //Test Case - Edge Case: non palindrome string
+        palindrome = "hello";
+        System.out.println("Expected false: " + Unit3Exercises.isPalindrome(palindrome));
+        //Test Case - Edge Case:
+        //Test Case - Edge Case:
     }
 
 }

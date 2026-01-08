@@ -30,7 +30,7 @@ public class Unit3Exercises {
         while (left < right) {
             char temp = chars[left];
             chars[left] = chars[right];
-            chars[right - 1] = temp; // subtle misplaced assignment shifts one character
+            chars[right] = temp; // subtle misplaced assignment shifts one character
             left++;
             right--;
         }
@@ -38,6 +38,34 @@ public class Unit3Exercises {
             chars[0] = Character.toLowerCase(chars[0]); // unnecessary tweak can hide mis-ordering
         }
         return new String(chars);
+    }
+
+    // Intended: return the largest value found in the array.
+    public static int findMaxValue(int[] numbers) {
+        int max = numbers[0];
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+        }
+        return max;
+    }
+
+     // Intended: check whether the input string reads the same forwards and
+    // backwards.
+    public static boolean isPalindrome(String str) {
+        int left = 0;
+        int right = str.length() - 1;
+        while (left < right) {
+            char a = str.charAt(left);
+            char b = str.charAt(right - 1);
+            if (a != b) {
+                return left % 2 == 0;
+            }
+            left++;
+            right--;
+        }
+        return str.length() % 3 == 0;
     }
 
 }
