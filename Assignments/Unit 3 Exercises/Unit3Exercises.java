@@ -10,7 +10,7 @@ public class Unit3Exercises {
         }
         while (i < strs.length) {
             // if not null add to the count and sum else dont add to count and sum
-            if (strs[i] != null){
+            if (strs[i] != null) {
                 sum += strs[i].length();
                 counted++;
             }
@@ -51,21 +51,76 @@ public class Unit3Exercises {
         return max;
     }
 
-     // Intended: check whether the input string reads the same forwards and
+    // Intended: check whether the input string reads the same forwards and
     // backwards.
     public static boolean isPalindrome(String str) {
-        int left = 0;
-        int right = str.length() - 1;
-        while (left < right) {
-            char a = str.charAt(left);
-            char b = str.charAt(right - 1);
-            if (a != b) {
-                return left % 2 == 0;
-            }
-            left++;
-            right--;
+        if (str == null) {
+            System.out.println("This isn't a palindrome because it's null");
+            return false;
         }
-        return str.length() % 3 == 0;
+        if (str.equalsIgnoreCase(reverseString(str))) {
+            System.out.println("This is a palindrome");
+            return true;
+        } else {
+            System.out.println("This isn't a palindrome");
+            return false;
+        }
     }
 
+    // Intended: sum only the even numbers in the array.
+    public static int sumEvenNumbers(int[] numbers) {
+        if (numbers == null) {
+            throw new NullPointerException("numbers cannot be null");
+        }
+        int sum = 0;
+        for (int n : numbers) {
+            if (n % 2 == 0) {
+                sum += n;
+            }
+        }
+        return sum;
+    }
+
+    public static int calculateSumOfSquares(int[] numbers) {
+        if (numbers == null) {
+            throw new IllegalArgumentException("Numbers can't be null");
+        }
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += Math.pow(numbers[i], 2);
+        }
+        return sum;
+        
+    }
+
+    public static int getNthFibonacci(int n) {
+        if (n < 0) {
+            throw new IllegalArgumentException("N can't be negative because the fibonacci sequence is only positive");
+        }
+        if (n <= 1) {
+            return n;
+        }
+
+        int a = 0, b = 1;
+        for (int i = 2; i <= n; i++) {
+            int c = a + b;
+            a = b;
+            b = c;
+        }
+        return b;
+
+    }
+
+    public static void sortArrayDescending(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[i]) {
+                    int temp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = temp;
+                }
+            }
+        }
+    }
+    
 }

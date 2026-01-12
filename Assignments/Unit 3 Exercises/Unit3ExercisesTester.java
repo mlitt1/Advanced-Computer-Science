@@ -4,7 +4,10 @@ public class Unit3ExercisesTester {
         testCalculateStringLengthAverage();
         testReverseString();
         testMaxValue();
-
+        testIsPalindrome();
+        testSumEvenInts();
+        testCalculateSumOfSquares();
+        testGetNthFibonacci();
     }
     
     public static void testCalculateStringLengthAverage() {
@@ -72,13 +75,63 @@ public class Unit3ExercisesTester {
 
     public static void testIsPalindrome() {
         //Test case - Main case
-        String palindrome = "racecar";
-        System.out.println("Expected true: " + Unit3Exercises.isPalindrome(palindrome));
+        String str = "racecar";
+        System.out.println("Expected true: " + Unit3Exercises.isPalindrome(str));
         //Test Case - Edge Case: non palindrome string
-        palindrome = "hello";
-        System.out.println("Expected false: " + Unit3Exercises.isPalindrome(palindrome));
-        //Test Case - Edge Case:
-        //Test Case - Edge Case:
+        str = "hello";
+        System.out.println("Expected false: " + Unit3Exercises.isPalindrome(str));
+        //Test Case - Edge Case: null string
+        str = null;
+        System.out.println("Expected false: " + Unit3Exercises.isPalindrome(str));
+        //Test Case - Edge Case: empy string
+        str = " ";
+        System.out.println("Expected true: " + Unit3Exercises.isPalindrome(str));
+    }
+
+    public static void testSumEvenInts() {
+        //Test case - Main case: Test with an array containing positive even and odd integers;
+        int[] numbers = {1, 2, 3, 4};
+        System.out.println("Expected 6: " + Unit3Exercises.sumEvenNumbers(numbers));
+        //Test Case - Edge Case: Test with an array containing only negative even and odd integers
+        int[] numbers1 = {-1, 1, 3, 5};
+        System.out.println("Expected 0: " + Unit3Exercises.sumEvenNumbers(numbers1));
+        //Test Case - Edge Case: Test with an array containing both positive and negative even and odd integers
+        int[] numbers2 = {-1, 2, 3, 4};
+        System.out.println("Expected 6: " + Unit3Exercises.sumEvenNumbers(numbers2));
+        //Test Case - Edge Case: Test with a null array.
+        int[] numbers3 = null;
+        try{
+            Unit3Exercises.sumEvenNumbers(numbers3);
+        } catch (Exception e) {
+            System.out.println("Exception throw correctly, oh yeaah!");
+        }
+        
+    }
+
+    public static void testCalculateSumOfSquares() {
+        // Test case - main case
+        int[] numbers = {1, 2, 3, 4};
+        System.out.println("Expected 30: " + Unit3Exercises.calculateSumOfSquares(numbers));
+        // edge case- null
+        numbers = null;
+        try{
+            Unit3Exercises.calculateSumOfSquares(numbers);
+        } catch (Exception e) {
+            System.out.println("This method threw an exception correctly when the array was null!");
+        }
+    }
+
+    public static void testGetNthFibonacci() {
+        // Test case - main case
+        int n = 9;
+        System.out.println("Expected 34: " + Unit3Exercises.getNthFibonacci(n));
+        // test case- negative number
+        n = -2;
+        try{
+            Unit3Exercises.getNthFibonacci(n);
+        } catch (Exception e) {
+            System.out.println("This method threw an exception coreectly");
+        }
     }
 
 }
