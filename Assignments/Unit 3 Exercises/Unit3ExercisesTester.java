@@ -134,4 +134,12 @@ public class Unit3ExercisesTester {
         }
     }
 
+    public static void testSortArrayDecsending() {
+        // Test case - main case
+        int[] arr = {1, 3, 2 , 0};
+        System.out.println("Expected 34: " + Unit3Exercises.sortArrayDescending(arr););
+        // Test case - main case: negative values
+        // Edge case - null array
+    }
+
 }
