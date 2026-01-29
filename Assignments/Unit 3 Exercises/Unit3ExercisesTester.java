@@ -8,6 +8,9 @@ public class Unit3ExercisesTester {
         testSumEvenInts();
         testCalculateSumOfSquares();
         testGetNthFibonacci();
+        testSortArrayDecsending();
+        testLongestWord();
+        testCalculateInterest();
     }
     
     public static void testCalculateStringLengthAverage() {
@@ -25,8 +28,7 @@ public class Unit3ExercisesTester {
 	        letters = null;
 	        System.out.println("Expected exception: " + Unit3Exercises.calculateAverageStringLength(letters));
         } catch (Exception e) {
-	        System.out.println(e.toString());
-	        System.out.println("The method threw an exception when the array was null, as intended");
+	        System.out.println(e);
         }
     }
 
@@ -47,8 +49,7 @@ public class Unit3ExercisesTester {
                 throw new NullPointerException("Cannot reverse a string that doesn't exist");
             }
         } catch (Exception e) {
-	        System.out.println(e.toString());
-	        System.out.println("The method threw an exception when the string was null, as intended");
+	        System.out.println(e);
         }
     }
 
@@ -69,7 +70,7 @@ public class Unit3ExercisesTester {
         try{
             Unit3Exercises.findMaxValue(testInt);
         } catch (Exception e) {
-            System.out.println("This method threw an exception correctly, booyah!");
+            System.out.println(e);
         }
     }
 
@@ -103,7 +104,7 @@ public class Unit3ExercisesTester {
         try{
             Unit3Exercises.sumEvenNumbers(numbers3);
         } catch (Exception e) {
-            System.out.println("Exception throw correctly, oh yeaah!");
+            System.out.println(e);
         }
         
     }
@@ -117,7 +118,7 @@ public class Unit3ExercisesTester {
         try{
             Unit3Exercises.calculateSumOfSquares(numbers);
         } catch (Exception e) {
-            System.out.println("This method threw an exception correctly when the array was null!");
+            System.out.println(e);
         }
     }
 
@@ -130,16 +131,78 @@ public class Unit3ExercisesTester {
         try{
             Unit3Exercises.getNthFibonacci(n);
         } catch (Exception e) {
-            System.out.println("This method threw an exception coreectly");
+            System.out.println(e);
         }
     }
 
     public static void testSortArrayDecsending() {
         // Test case - main case
-        int[] arr = {1, 3, 2 , 0};
-        System.out.println("Expected 34: " + Unit3Exercises.sortArrayDescending(arr););
+        int[] array = {1, 3, 2 , 0};
+        System.out.println("Expected 0, 1, 2, 3: ");
+        Unit3Exercises.sortArrayDescending(array);
         // Test case - main case: negative values
+        int[] array2 = {-1, 2, -3, 0};
+        System.out.println("Expected -3, -1, 0, 2: ");
+        Unit3Exercises.sortArrayDescending(array2);
         // Edge case - null array
+        int[] array3 = null;
+        try{
+            Unit3Exercises.sortArrayDescending(array3);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+
+    public static void testLongestWord() {
+        // Test case - main case test with two sentances
+        String sentance1 = "This sentance is long";
+        System.out.println("Expected sentance: " + Unit3Exercises.findLongestWord(sentance1));
+        // Test case- main case when multiple words have the same longest length, the method returns the first occurrence.
+        String sentance2 = "This sentance is reaaaaly long";
+        System.out.println("Expected sentance: " + Unit3Exercises.findLongestWord(sentance2));
+        // Edge case- Handle null or empty input by throwing an appropriate exception with a descriptive message.
+        String sentance3 = null;
+        try {
+            Unit3Exercises.findLongestWord(sentance3);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    public static void testCalculateInterest() {
+        //test case- Main Case - Choose appropriate parameters, manually calculate the expected value, and verify that the code produces the correct output. Test with at least 2 different sets of values.
+        double principle = 100;
+        double rate = 10;
+        int years = 2;
+        System.out.println("Expected 121: " + Unit3Exercises.calculateInterest(principle, rate, years));
+        // edge case - Edge Case - The principal amount cannot be negative.
+        double principle2 = -100;
+        double rate2 = 10;
+        int years2 = 2;
+        try {
+            Unit3Exercises.calculateInterest(principle2, rate2, years2);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        // edge case - Edge Case - The rate amount cannot be negative.
+        double principle3 = 100;
+        double rate3 = -10;
+        int years3 = 2;
+        try {
+            Unit3Exercises.calculateInterest(principle3, rate3, years3);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        // edge case - Edge Case - The years amount cannot be negative.
+        double principle4 = 100;
+        double rate4 = 10;
+        int years4 = -2;
+        try {
+            Unit3Exercises.calculateInterest(principle4, rate4, years4);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
     }
 
 }

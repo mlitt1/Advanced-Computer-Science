@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Unit3Exercises {
 
     public static double calculateAverageStringLength(String[] strs) {
@@ -83,7 +85,7 @@ public class Unit3Exercises {
 
     public static int calculateSumOfSquares(int[] numbers) {
         if (numbers == null) {
-            throw new IllegalArgumentException("Numbers can't be null");
+            throw new IllegalArgumentException("Numbers can't be null.");
         }
         int sum = 0;
         for (int i = 0; i < numbers.length; i++) {
@@ -112,6 +114,9 @@ public class Unit3Exercises {
     }
 
     public static void sortArrayDescending(int[] arr) {
+        if (arr == null) {
+            throw new NullPointerException("There is no numbers to sort.");
+        }
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[j] < arr[i]) {
@@ -121,6 +126,32 @@ public class Unit3Exercises {
                 }
             }
         }
+
+        System.out.println(Arrays.toString(arr));
     }
+
+    public static String findLongestWord(String sentence) {
+        if (sentence == null) {
+            throw new NullPointerException("This sentence doesn't exist");
+        }
+        String[] words = sentence.split(" ");
+        String longestWord = "";
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() > longestWord.length()) {
+                longestWord = words[i];
+            }
+        }
+        return longestWord;
+    }
+
+    public static double calculateInterest(double principal, double rate, int years) {
+        if (principal < 0 || rate < 0 || years < 0) {
+            throw new IllegalArgumentException("Cannot input negative numbers");
+        }
+        for (int i = 0; i < years; i++) {
+            principal += principal * (rate / 100);
+        }
+        return principal;
+}
     
 }
