@@ -32,6 +32,8 @@ public class ArrayListDemo {
         System.out.println(names);
         System.out.println(names.size());
         System.out.println(names.get(4));
+        names.add(1,"Poop");
+        System.out.println(names);
         ArrayList<Integer> myFavNumbers = new ArrayList<Integer>();
         myFavNumbers.add(16);
         myFavNumbers.add(67);

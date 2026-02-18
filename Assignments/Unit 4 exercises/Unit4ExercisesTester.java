@@ -1,4 +1,4 @@
-public class Tester {
+public class Unit4ExercisesTester {
 
     
     public static void main(String[] args) {

@@ -25,44 +25,23 @@ public class ArrayVersusArrayList {
     // shifting all
     // other elements to the right.
     public static void lastComesFirst(String[] arr) {
-        if (arr == null || arr.length == 0) {
-            throw new IllegalArgumentException("Invalid array");
-        }
-        String last = arr[arr.length - 1];
-        for (int i = 0; i < arr.length - 1; i++) {
-            String temp = arr[arr.length - 2 - i];
-            arr[arr.length - 1 - i] = temp;
-        }
-        arr[0] = last;
+        // to-do: implement method
+
     }
 
     // modifies the given array by moving the last element to the first index, and
     // shifting all
     // other elements to the right.
     public static void lastComesFirst(ArrayList<String> arrList) {
-        if (arrList == null || arrList.size() == 0) {
-            throw new IllegalArgumentException("Invalid array");
-        }
-        
-        String last = arrList.remove(arrList.size() - 1);
-        arrList.add(0, last);
+        // to-do: implement method
+
     }
 
     // modifies the given array by moving the first element to the last index, and
     // shifting all
     // other elements to the left.
     public static void firstComesLast(String[] arr) {
-        if (arr == null) {
-            throw new IllegalArgumentException("Array is null");
-        }
-        if (arr.length <= 0) {
-            throw new IllegalArgumentException("Invalid array");
-        }
-        String first = arr[0];
-        for (int i = 0; i < arr.length - 1; i++) {
-            arr[i] = arr[i + 1];
-        }
-        arr[arr.length - 1] = first;
+        // to-do: implement method
 
     }
 
@@ -70,17 +49,7 @@ public class ArrayVersusArrayList {
     // shifting all
     // other elements to the left.
     public static void firstComesLast(ArrayList<String> arrList) {
-        if (arrList == null) {
-            throw new IllegalArgumentException("Array is null");
-        }
-        if (arrList.size() == 0) {
-            throw new IllegalArgumentException("Invalid array");
-        }
-        String first = arrList.get(0);
-        for (int i = 0; i < arrList.size() - 1; i++) {
-            arrList.set(i, arrList.get(i + 1));
-        }
-        arrList.set(arrList.size() - 1, first);
+        // to-do: implement method
 
     }
 
@@ -101,8 +70,8 @@ public class ArrayVersusArrayList {
     }
 
     public static void testLastComesFirst1() {
-        String[] strArray = {"first", "second", "third", "fourth", "fifth"};
-        String[] expectedArray = {"fifth", "first", "second", "third", "fourth"};
+        String[] strArray = { "first", "second", "third", "fourth", "fifth" };
+        String[] expectedArray = { "fifth", "first", "second", "third", "fourth" };
 
         System.out.println("\tTesting lastComesFirst():");
         System.out.println("\tOriginal: " + printArray(strArray));
@@ -116,8 +85,8 @@ public class ArrayVersusArrayList {
     }
 
     public static void testFirstComesLast1() {
-        String[] strArray = {"one", "two", "three", "four", "five"};
-        String[] expectedArray = {"two", "three", "four", "five", "one"};
+        String[] strArray = { "one", "two", "three", "four", "five" };
+        String[] expectedArray = { "two", "three", "four", "five", "one" };
 
         System.out.println("\tTesting firstComesLast():");
         System.out.println("\tOriginal: " + printArray(strArray));
