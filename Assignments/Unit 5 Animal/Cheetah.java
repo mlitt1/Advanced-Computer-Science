@@ -1,4 +1,4 @@
-public class Cheetah {
+public class Cheetah extends Animal{
     
     // instance variables
 
@@ -62,6 +62,15 @@ public class Cheetah {
         }
         return fastest;
     }
+
+    public void feed() {
+        System.out.println("This cheetah is full");
+    }
+
+    public String toString() {
+        return "This cheetahs speed is " + speed;
+    }
+
 
 
 }

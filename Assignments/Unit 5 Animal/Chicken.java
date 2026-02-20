@@ -29,7 +29,7 @@ public class Chicken extends Animal{
     public void setChickenAges(double[] chickenAges) {
         this.chickenAges = chickenAges;
     }
-    public double getSpeed() {
+    public int getSpeed() {
         return speed;
     }
 
@@ -58,10 +58,12 @@ public class Chicken extends Animal{
         return "Chicken speed = 4mph";
     }
 
-    @Override
-    public void eat() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eat'");
+    public void feed() {
+        System.out.println("This chicken is full now");;
+    }
+
+    public String toString() {
+        return "This chickens speed is " + speed + " there are " + chickenCount + "chicekns";
     }
 
 }
