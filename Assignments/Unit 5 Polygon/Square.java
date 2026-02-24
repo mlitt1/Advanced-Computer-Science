@@ -4,10 +4,19 @@ public class Square extends Rectangle {
         super(sideLength, sideLength);
     }
 
-    @Override
-    public double getArea() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getArea'");
+    public Square() {
+        super(4, 4);
     }
-    
+
+    public double getArea() {
+        return super.getArea();
+    }
+
+    public String toString() {
+        String coolString = super.toString();
+        String partone = "It is a rectangle with a length of " + super.getLength();
+        String parttwo = "and width of " + super.getWidth() + ". Its area is " + getArea() + ".";
+        return coolString + partone + parttwo;
+        
+    }    
 }

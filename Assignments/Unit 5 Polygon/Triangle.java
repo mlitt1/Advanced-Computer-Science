@@ -21,6 +21,8 @@ public class Triangle extends Polygon{
 
     public Triangle() {
         super(3);
+        this.base = 3;
+        this.height = 4;
     }
 
     public Triangle(double base, double height) {
@@ -30,7 +32,7 @@ public class Triangle extends Polygon{
     }
 
     public double getArea() {
-        return (1/2 * base) * height;
+        return (0.5 * base) * height;
     }
 
     public String toString() {
