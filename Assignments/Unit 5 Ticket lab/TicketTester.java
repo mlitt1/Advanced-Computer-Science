@@ -3,16 +3,15 @@ import java.util.Date;
 public class TicketTester {
     public static void main(String[] args) {
         Date today = new Date();
-        // to-do: uncomment the following lines to test your code.
+        
+        StandardTicket standardTicket = new StandardTicket(today, 3);
+        standardTicket.printTicketDetails();
 
-        // StandardTicket standardTicket = new StandardTicket(today, 3);
-        // standardTicket.printTicketDetails();
+        MemberTicket memberTicket = new MemberTicket(today, 3);
+        memberTicket.printTicketDetails();
 
-        // MemberTicket memberTicket = new MemberTicket(today, 3);
-        // memberTicket.printTicketDetails();
-
-        // StudentTicket studentTicket = new StudentTicket(today, 3);
-        // studentTicket.printTicketDetails();
+        StudentTicket studentTicket = new StudentTicket(today, 3);
+        studentTicket.printTicketDetails();
         
     }
 }

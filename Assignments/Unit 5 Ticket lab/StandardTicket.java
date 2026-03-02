@@ -9,8 +9,7 @@ public class StandardTicket extends Ticket {
     }
 
     public double getTotalPrice() {
-        double totalPrice = (super.getTax() + super.getBasePrice()) * super.getTicketCount();
-        return totalPrice;
+        return (super.getTax() + super.getBasePrice()) * super.getTicketCount();
     }
 
     @Override
@@ -30,7 +29,7 @@ public class StandardTicket extends Ticket {
         System.out.println("Can be canceled within 24 hours before the event. Cancellation fee applies.");
     }
 
-    public void printEventDetails() {
+    public void printTicketDetails() {
         super.printTicketDetails();
         printTicketType();
         printPrice();
