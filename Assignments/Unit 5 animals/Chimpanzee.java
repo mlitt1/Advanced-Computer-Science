@@ -21,7 +21,7 @@ public class Chimpanzee extends Animal{
 
     @Override
     public String getFact(int index) {
-        return facts[0];
+        return facts[index];
     }
 
     @Override

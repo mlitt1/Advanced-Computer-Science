@@ -21,7 +21,7 @@ public class Matthew extends Animal implements Swimmable, Predator{
 
     @Override
     public String getFact(int index) {
-        return facts[4];
+        return facts[index];
     }
 
     @Override
@@ -60,12 +60,12 @@ public class Matthew extends Animal implements Swimmable, Predator{
     }
 
     public void goSwimming() {
-        System.out.println("Matthew swam the 50 meter in " + (Math.random() * 1.2) + 20.91);
+        System.out.println("Matthew swam the 50 meter in " + (Math.random() * 1.2) + 20.91 + " seconds.");
     }
 
     @Override
     public String getPrimaryPrey() {
-        return "The lion hunts other lions";
+        return "The lion hunts anything that moves or breathes";
     }
 
     @Override
