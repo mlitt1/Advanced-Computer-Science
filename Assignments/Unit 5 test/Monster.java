@@ -50,7 +50,7 @@ public abstract class Monster implements ElementalAttacks {
 
     // returns the attack of the monster
     public int getAttack() {
-        if ((int) Math.random() * 2 == 1) {
+        if (Math.random() < 0.5) {
             return attack1();
         } else {
             return attack2();
@@ -100,7 +100,7 @@ public abstract class Monster implements ElementalAttacks {
     // flag double down as used
     public void useDoubleDown(Monster opponent) {
         hasUsedDoubleDown = true;
-        performDoubleDownAttack(opponent);
+        opponent.takeDamage(attack1() + attack2());
     }
 
     // checks if double down has been used
@@ -111,8 +111,12 @@ public abstract class Monster implements ElementalAttacks {
     // public abstract toString method to be implemented by subclasses
     public abstract String victoryNoise();
 
-    public abstract int attack1();
+    public int attack1() {
+        return attack;
+    }
 
-    public abstract int attack2();
+    public int attack2() {
+        return attack + 5;
+    }
 
 }

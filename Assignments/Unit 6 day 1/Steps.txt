@@ -1,0 +1,5 @@
+public void sortcards(Cards[] deck) {
+    while !(cards[0] < cards[1] && cards[1] < cards[2] && cards[2] < cards[3] && cards[3] < cards[4]) {
+        compare cards at random positions cards[Math.random * deck.getsize - 1], 0 - deck.getsize() if the card at an earlier index is bigger than a card at a later index, swap them until the condition is true
+    }
+}

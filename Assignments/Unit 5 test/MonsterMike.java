@@ -1,7 +1,7 @@
 public class MonsterMike extends Monster{
 
     public MonsterMike() {
-        super("Mike wazowski", ElementType.fromString("Fire"), 100, 1000, 48, 2, "Fast attack", "Strong attack", ElementType.fromString("Air"),
+        super("Mike wazowski", ElementType.fromString("water"), 120, 10, 10, 2, "Fast attack", "Strong attack", ElementType.fromString("Air"),
                 ElementType.fromString("Water"));
     }
 
@@ -10,13 +10,11 @@ public class MonsterMike extends Monster{
         return "Hoorah";
     }
 
-    @Override
     public int attack1() {
-        return getAttack();
+        return attack;
     }
 
-    @Override
     public int attack2() {
-        return getAttack();
+        return attack + 5;
     }
 }

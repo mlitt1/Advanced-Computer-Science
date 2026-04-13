@@ -1,7 +1,7 @@
 public class MonsterBob extends Monster{
 
     public MonsterBob() {
-        super("Bob", ElementType.fromString("Fire"), 100, 20, 50, 100, "cool attack", "awesome attack", ElementType.fromString("Water"),
+        super("Bob", ElementType.fromString("Fire"), 100, 12, 50, 50, "cool attack", "awesome attack", ElementType.fromString("Water"),
                 ElementType.fromString("Earth"));
     }
 
@@ -10,14 +10,12 @@ public class MonsterBob extends Monster{
         return "graaaaaah";
     }
 
-    @Override
     public int attack1() {
-        return 18;
+        return attack;
     }
 
-    @Override
     public int attack2() {
-        return 12;
+        return attack + 5;
     }
     
 }

@@ -10,11 +10,13 @@ public interface ElementalAttacks {
     //         - After using double down, the attack probability is 50% / 50% for Attacks 1/2
     default void attack(Monster opponent) {
         Monster thisMonster = thisMonster();
-        int random = (int) Math.random() * 100;
-        if (random >= 0 && random <= 10) {
-            thisMonster.useDoubleDown(opponent);
-        } else if (random > 10 && random <= 55) {
-            thisMonster.getAttack();
+        int random = (int)(Math.random() * 100);
+        if (random < 10 && !thisMonster.hasUsedDoubleDown()) {
+            performDoubleDownAttack(opponent);
+        } else if (random < 55) {
+            performSingleElementalAttack(1, opponent);
+        } else {
+            performSingleElementalAttack(2, opponent);
         }
     }
 
@@ -25,14 +27,27 @@ public interface ElementalAttacks {
     //      opponent:   the opposing Monster to attack
     default void performSingleElementalAttack(int attackNumber, Monster opponent) {
         Monster thisMonster = thisMonster();
+        int damage;
+        ElementType attackType;
         if (attackNumber == 1) {
-            if (thisMonster.hasUsedDoubleDown()) {
-                thisMonster.performDoubleDownAttack(opponent);
-            } else {
-                thisMonster.getAttack();
-            }
+            damage = thisMonster.attack1();
+            attackType = thisMonster.attackElementOne;
+            System.out.println(thisMonster.getName() + " used " + thisMonster.attackNameOne);
+        } else if (attackNumber == 2) {
+            damage = thisMonster.attack2();
+            attackType = thisMonster.attackElementTwo;
+            System.out.println(thisMonster.getName() + " used " + thisMonster.attackNameTwo);
         } else {
-            opponent.getAttack();
+            throw new IllegalArgumentException("Invalid attack number");
+        }
+
+        double multiplier = getElementalMultiplier(attackType, opponent.getElement());
+        int finalDamage = (int)(damage * multiplier);
+        opponent.takeDamage(finalDamage);
+        if (multiplier == 2.0) {
+            System.out.println("It was super effective!");
+        } else if (multiplier == 0.5) {
+            System.out.println("It was not very effective...");
         }
     }
 
@@ -46,10 +61,10 @@ public interface ElementalAttacks {
     default void performDoubleDownAttack(Monster opponent) {
         Monster thisMonster = thisMonster();
         if (thisMonster.hasUsedDoubleDown()) {
-            opponent.attack(thisMonster);
-        } else {
-            thisMonster.useDoubleDown(opponent);
+            System.out.println("Already used double down.");
+            return;
         }
+        thisMonster.useDoubleDown(opponent);
     }
 
     /**
