@@ -6,3 +6,8 @@
 
 [node name="Player" parent="." unique_id=1845266569 instance=ExtResource("1_5cjrv")]
 position = Vector2(642, 361)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1889172871]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 0, 1, 1)
