@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dm23vuqx6rxtd"]
+
+[ext_resource type="Texture2D" uid="uid://xk2gy0bu8i1h" path="res://assets/tiles/Box.png" id="1_3tp04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htxux"]
+size = Vector2(82, 82)
+
+[node name="GroundBody" type="StaticBody2D" unique_id=631731404]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1003999198]
+position = Vector2(222, 109)
+texture = ExtResource("1_3tp04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=592936320]
+position = Vector2(222, 108)
+shape = SubResource("RectangleShape2D_htxux")

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://de0wntgk3m106"]
 
 [ext_resource type="PackedScene" uid="uid://ot6xhj38c7ew" path="res://Scenes/Player.tscn" id="1_5cjrv"]
+[ext_resource type="PackedScene" uid="uid://dm23vuqx6rxtd" path="res://Scenes/GroundBlock.tscn" id="2_j0p05"]
+[ext_resource type="PackedScene" uid="uid://111o5l2kd3xt" path="res://Scenes/PickUp.tscn" id="3_5nsto"]
 
 [node name="World" type="Node2D" unique_id=1415140812]
 
@@ -8,6 +10,62 @@
 position = Vector2(642, 361)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1889172871]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 438.0
+offset_top = 216.0
+offset_right = 478.0
+offset_bottom = 256.0
 color = Color(1, 0, 1, 1)
+
+[node name="GroundBody" parent="." unique_id=631731404 instance=ExtResource("2_j0p05")]
+position = Vector2(349, 466)
+
+[node name="GroundBody2" parent="." unique_id=953371264 instance=ExtResource("2_j0p05")]
+position = Vector2(178, 467)
+
+[node name="GroundBody3" parent="." unique_id=795374166 instance=ExtResource("2_j0p05")]
+position = Vector2(264, 466)
+
+[node name="GroundBody4" parent="." unique_id=556385803 instance=ExtResource("2_j0p05")]
+position = Vector2(434, 465)
+
+[node name="GroundBody5" parent="." unique_id=1220664327 instance=ExtResource("2_j0p05")]
+position = Vector2(689, 385)
+
+[node name="GroundBody6" parent="." unique_id=823825179 instance=ExtResource("2_j0p05")]
+position = Vector2(518, 386)
+
+[node name="GroundBody7" parent="." unique_id=953106272 instance=ExtResource("2_j0p05")]
+position = Vector2(604, 385)
+
+[node name="GroundBody8" parent="." unique_id=1838089953 instance=ExtResource("2_j0p05")]
+position = Vector2(774, 384)
+
+[node name="GroundBody9" parent="." unique_id=2013472151 instance=ExtResource("2_j0p05")]
+position = Vector2(1168, 380)
+
+[node name="GroundBody10" parent="." unique_id=1024530398 instance=ExtResource("2_j0p05")]
+position = Vector2(997, 381)
+
+[node name="GroundBody11" parent="." unique_id=2134204366 instance=ExtResource("2_j0p05")]
+position = Vector2(1083, 380)
+
+[node name="GroundBody12" parent="." unique_id=1951075310 instance=ExtResource("2_j0p05")]
+position = Vector2(1253, 379)
+
+[node name="GroundBody13" parent="." unique_id=1518529568 instance=ExtResource("2_j0p05")]
+position = Vector2(1531, 485)
+
+[node name="GroundBody14" parent="." unique_id=1050425362 instance=ExtResource("2_j0p05")]
+position = Vector2(1360, 486)
+
+[node name="GroundBody15" parent="." unique_id=669096915 instance=ExtResource("2_j0p05")]
+position = Vector2(1446, 485)
+
+[node name="GroundBody16" parent="." unique_id=821993862 instance=ExtResource("2_j0p05")]
+position = Vector2(1616, 484)
+
+[node name="Pickup" parent="." unique_id=1923191927 instance=ExtResource("3_5nsto")]
+position = Vector2(834, 337)
+
+[node name="Pickup2" parent="." unique_id=1096862337 instance=ExtResource("3_5nsto")]
+position = Vector2(1300, 298)

@@ -67,11 +67,12 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o3h8g"]
-radius = 50.0
-height = 166.66666
+radius = 66.666664
+height = 199.99998
 
 [node name="Player" type="CharacterBody2D" unique_id=1845266569]
 script = ExtResource("1_1e7my")
+jump_velocity = -600.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=965493174]
 scale = Vector2(0.6, 0.6)
@@ -79,7 +80,10 @@ sprite_frames = SubResource("SpriteFrames_utwlt")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1739074312]
+position = Vector2(1, -2)
 scale = Vector2(0.6, 0.6)
 shape = SubResource("CapsuleShape2D_o3h8g")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1263897278]
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=1824128262]

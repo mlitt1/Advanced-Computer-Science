@@ -1,27 +1,41 @@
 class_name Player
 extends CharacterBody2D
 
-@export var speed: float = 222.0
-@export var jump_velocity: float = -200.0;
-#when thew player monkey is loaded automatically assign the sprite var of type Animated
-#Sprite2D to teh child node of the same name
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@export var speed: float = 220.0
+@export var jump_velocity: float = -420.0
+@export var bullet_scene: PackedScene
 
-var score: int = 0;
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var muzzle: Marker2D = $Muzzle
+
+var score: int = 0
+var facing: int = 1
 
 func _ready() -> void:
-	print("Player ready ", name)
 	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
-	#horizontal movement
-	var dir = Input.get_axis("move_left", "move_right")
-	velocity.x = dir * speed
-	
-	if Input.is_action_just_pressed("jump"):
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
-		
+
+	var dir := Input.get_axis("move_left", "move_right")
+	velocity.x = dir * speed
 	if dir != 0.0:
-		sprite.flip_h = dir < 0.0
-		
+		facing = int(sign(dir))
+		sprite.flip_h = facing < 0
+		muzzle.position.x = abs(muzzle.position.x) * facing
+
+	if Input.is_action_just_pressed("shoot"):
+		_shoot()
+
 	move_and_slide()
+
+func _shoot() -> void:
+	if bullet_scene == null: return
+	var b: Node = bullet_scene.instantiate()
+	b.global_position = muzzle.global_position
+	b.direction = facing
+	get_tree().current_scene.add_child(b)

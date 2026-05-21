@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://111o5l2kd3xt"]
+
+[ext_resource type="Script" uid="uid://0wynuljo12s4" path="res://scripts/coin.gd" id="1_fw30w"]
+[ext_resource type="Texture2D" uid="uid://cvnf0cvbnimx4" path="res://assets/tiles/Grass1.png" id="1_qrc3l"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_somhs"]
+radius = 35.0
+
+[node name="Pickup" type="Area2D" unique_id=1923191927]
+script = ExtResource("1_fw30w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=273404926]
+position = Vector2(24.5, 20.5)
+scale = Vector2(3.7222223, 3.5625)
+texture = ExtResource("1_qrc3l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=317199621]
+position = Vector2(24, 18)
+shape = SubResource("CircleShape2D_somhs")
