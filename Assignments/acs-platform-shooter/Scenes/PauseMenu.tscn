@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://qy3fitcarig8"]
+
+[ext_resource type="Script" uid="uid://cbd3v8y57333s" path="res://Scripts/pause_menu.gd" id="1_lj4oq"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1791208024]
+process_mode = 3
+script = ExtResource("1_lj4oq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=112774153]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.11364069, 0.20277739, 0.4703424, 0.147)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1949792560]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1149712368]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer" unique_id=2102482220]
+layout_mode = 2
+text = "Paused
+"
+
+[node name="ResumeButton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=229816733]
+layout_mode = 2

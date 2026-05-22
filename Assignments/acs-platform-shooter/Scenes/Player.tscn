@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8deocvkscmw1" path="res://Scripts/player.gd" id="1_1e7my"]
 [ext_resource type="Texture2D" uid="uid://ccate38dt0npp" path="res://assets/character/idle/Idle_00.png" id="1_o3h8g"]
 [ext_resource type="Texture2D" uid="uid://c47lrrd8d5tmw" path="res://assets/character/idle/Idle_01.png" id="2_1e7my"]
+[ext_resource type="PackedScene" uid="uid://dm11ak8vjt7g8" path="res://Scenes/Bullet.tscn" id="2_arntx"]
 [ext_resource type="Texture2D" uid="uid://cbstakbvbvwxa" path="res://assets/character/idle/Idle_02.png" id="3_arntx"]
 [ext_resource type="Texture2D" uid="uid://d1gedd2576n1c" path="res://assets/character/idle/Idle_03.png" id="4_lslt6"]
 [ext_resource type="Texture2D" uid="uid://btjvrwqc1d5rd" path="res://assets/character/idle/Idle_04.png" id="5_ulo2v"]
@@ -73,6 +74,7 @@ height = 199.99998
 [node name="Player" type="CharacterBody2D" unique_id=1845266569]
 script = ExtResource("1_1e7my")
 jump_velocity = -600.0
+bullet_scene = ExtResource("2_arntx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=965493174]
 scale = Vector2(0.6, 0.6)

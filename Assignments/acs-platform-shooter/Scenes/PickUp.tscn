@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://111o5l2kd3xt"]
 
-[ext_resource type="Script" uid="uid://0wynuljo12s4" path="res://scripts/coin.gd" id="1_fw30w"]
+[ext_resource type="Script" uid="uid://0wynuljo12s4" path="res://Scripts/coin.gd" id="1_fw30w"]
 [ext_resource type="Texture2D" uid="uid://cvnf0cvbnimx4" path="res://assets/tiles/Grass1.png" id="1_qrc3l"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_somhs"]

@@ -12,9 +12,14 @@ config_version=5
 
 config/name="ACS Platform Shooter"
 config/description="A 2D Platformer shooter from ACS"
-run/main_scene="uid://de0wntgk3m106"
+run/main_scene="uid://dthbos6eqiglj"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+ScoreManager="*uid://ouw3vgg2ywu8"
+GameState="*uid://c3qyv538lmerp"
 
 [display]
 

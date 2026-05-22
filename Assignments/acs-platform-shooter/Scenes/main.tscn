@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://cnihnvytp6i3s"]
 
-[node name="Main" type="Node2D" unique_id=275016342]
+[ext_resource type="Script" uid="uid://wyqxmttyjofr" path="res://Scripts/main_menu.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://dthbos6eqiglj" path="res://Scenes/main_menu.tscn" id="2_bo1nx"]
+
+[node name="Main" type="Node" unique_id=617099888]
+script = ExtResource("1_jjgbg")
 
 [node name="Backround" type="CanvasLayer" parent="." unique_id=277245408]
 
@@ -8,3 +12,9 @@
 offset_right = 1280.0
 offset_bottom = 720.0
 color = Color(0.17732099, 0.20146835, 0.29648465, 1)
+
+[node name="MainMenu" parent="." unique_id=1340602027 instance=ExtResource("2_bo1nx")]
+offset_left = 540.2109
+offset_top = 321.80032
+offset_right = 540.21094
+offset_bottom = 321.8003

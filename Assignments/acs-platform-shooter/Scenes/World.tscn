@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://de0wntgk3m106"]
 
 [ext_resource type="PackedScene" uid="uid://ot6xhj38c7ew" path="res://Scenes/Player.tscn" id="1_5cjrv"]
+[ext_resource type="Script" uid="uid://cnapbrr77kde7" path="res://Scripts/world.gd" id="1_p70al"]
 [ext_resource type="PackedScene" uid="uid://dm23vuqx6rxtd" path="res://Scenes/GroundBlock.tscn" id="2_j0p05"]
 [ext_resource type="PackedScene" uid="uid://111o5l2kd3xt" path="res://Scenes/PickUp.tscn" id="3_5nsto"]
+[ext_resource type="PackedScene" uid="uid://dms1o6mbk7e3v" path="res://Scenes/Enemy.tscn" id="4_gjpho"]
+[ext_resource type="PackedScene" uid="uid://qy3fitcarig8" path="res://Scenes/PauseMenu.tscn" id="6_45d1s"]
 
 [node name="World" type="Node2D" unique_id=1415140812]
+script = ExtResource("1_p70al")
 
 [node name="Player" parent="." unique_id=1845266569 instance=ExtResource("1_5cjrv")]
-position = Vector2(642, 361)
+position = Vector2(568, 464)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1889172871]
 offset_left = 438.0
@@ -69,3 +73,11 @@ position = Vector2(834, 337)
 
 [node name="Pickup2" parent="." unique_id=1096862337 instance=ExtResource("3_5nsto")]
 position = Vector2(1300, 298)
+
+[node name="Enemy" parent="." unique_id=1770841274 instance=ExtResource("4_gjpho")]
+position = Vector2(1255, 380)
+
+[node name="Enemy2" parent="." unique_id=1858384483 instance=ExtResource("4_gjpho")]
+position = Vector2(935, 384)
+
+[node name="PauseMenu" parent="." unique_id=1791208024 instance=ExtResource("6_45d1s")]
