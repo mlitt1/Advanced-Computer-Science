@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://de0wntgk3m106"]
+
+[ext_resource type="Script" uid="uid://cnapbrr77kde7" path="res://Scripts/level.gd" id="1_2a60c"]
+[ext_resource type="Texture2D" uid="uid://c0n5yg0mn48pv" path="res://assets/bg/L3.png" id="2_4iphx"]
+[ext_resource type="PackedScene" uid="uid://dgnp5q5ivtrlc" path="res://Scenes/level2.tscn" id="2_bs12r"]
+[ext_resource type="Texture2D" uid="uid://65ky414jckwq" path="res://assets/bg/L2.png" id="3_4iphx"]
+[ext_resource type="PackedScene" uid="uid://ot6xhj38c7ew" path="res://Scenes/Player.tscn" id="3_jgkgd"]
+[ext_resource type="PackedScene" uid="uid://dm23vuqx6rxtd" path="res://Scenes/GroundBlock.tscn" id="4_bs12r"]
+[ext_resource type="PackedScene" uid="uid://111o5l2kd3xt" path="res://Scenes/PickUp.tscn" id="5_rqhku"]
+[ext_resource type="PackedScene" uid="uid://dms1o6mbk7e3v" path="res://Scenes/Enemy.tscn" id="6_cpkqv"]
+[ext_resource type="PackedScene" uid="uid://qy3fitcarig8" path="res://Scenes/PauseMenu.tscn" id="7_d1mwp"]
+[ext_resource type="Texture2D" uid="uid://7b132wcfyxm3" path="res://assets/tiles/ExitDoor.png" id="9_jgkgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgkgd"]
+size = Vector2(92, 176)
+
+[node name="Level1" type="Node2D" unique_id=1415140812]
+script = ExtResource("1_2a60c")
+next_level = ExtResource("2_bs12r")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1276819627]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=264262081]
+motion_scale = Vector2(0.2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=412971936]
+texture = ExtResource("2_4iphx")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1249019519]
+motion_scale = Vector2(0.5, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1481326827]
+texture = ExtResource("3_4iphx")
+
+[node name="Player" parent="." unique_id=1845266569 instance=ExtResource("3_jgkgd")]
+position = Vector2(568, 464)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1889172871]
+offset_left = 438.0
+offset_top = 216.0
+offset_right = 478.0
+offset_bottom = 256.0
+color = Color(1, 0, 1, 1)
+
+[node name="GroundBody" parent="." unique_id=631731404 instance=ExtResource("4_bs12r")]
+position = Vector2(349, 466)
+
+[node name="GroundBody2" parent="." unique_id=953371264 instance=ExtResource("4_bs12r")]
+position = Vector2(178, 467)
+
+[node name="GroundBody3" parent="." unique_id=795374166 instance=ExtResource("4_bs12r")]
+position = Vector2(264, 466)
+
+[node name="GroundBody4" parent="." unique_id=556385803 instance=ExtResource("4_bs12r")]
+position = Vector2(434, 465)
+
+[node name="GroundBody5" parent="." unique_id=1220664327 instance=ExtResource("4_bs12r")]
+position = Vector2(689, 385)
+
+[node name="GroundBody6" parent="." unique_id=823825179 instance=ExtResource("4_bs12r")]
+position = Vector2(518, 386)
+
+[node name="GroundBody7" parent="." unique_id=953106272 instance=ExtResource("4_bs12r")]
+position = Vector2(604, 385)
+
+[node name="GroundBody8" parent="." unique_id=1838089953 instance=ExtResource("4_bs12r")]
+position = Vector2(774, 384)
+
+[node name="GroundBody9" parent="." unique_id=2013472151 instance=ExtResource("4_bs12r")]
+position = Vector2(1168, 380)
+
+[node name="GroundBody10" parent="." unique_id=1024530398 instance=ExtResource("4_bs12r")]
+position = Vector2(997, 381)
+
+[node name="GroundBody11" parent="." unique_id=2134204366 instance=ExtResource("4_bs12r")]
+position = Vector2(1083, 380)
+
+[node name="GroundBody12" parent="." unique_id=1951075310 instance=ExtResource("4_bs12r")]
+position = Vector2(1253, 379)
+
+[node name="GroundBody13" parent="." unique_id=1518529568 instance=ExtResource("4_bs12r")]
+position = Vector2(1531, 485)
+
+[node name="GroundBody14" parent="." unique_id=1050425362 instance=ExtResource("4_bs12r")]
+position = Vector2(1360, 486)
+
+[node name="GroundBody15" parent="." unique_id=669096915 instance=ExtResource("4_bs12r")]
+position = Vector2(1446, 485)
+
+[node name="GroundBody16" parent="." unique_id=821993862 instance=ExtResource("4_bs12r")]
+position = Vector2(1616, 484)
+
+[node name="Pickup" parent="." unique_id=1923191927 instance=ExtResource("5_rqhku")]
+position = Vector2(834, 337)
+
+[node name="Pickup2" parent="." unique_id=1096862337 instance=ExtResource("5_rqhku")]
+position = Vector2(1300, 298)
+
+[node name="Enemy" parent="." unique_id=1770841274 instance=ExtResource("6_cpkqv")]
+position = Vector2(1255, 380)
+
+[node name="Enemy2" parent="." unique_id=1858384483 instance=ExtResource("6_cpkqv")]
+position = Vector2(935, 384)
+
+[node name="PauseMenu" parent="." unique_id=1791208024 instance=ExtResource("7_d1mwp")]
+
+[node name="ExitDoor" type="Area2D" parent="." unique_id=168244952]
+
+[node name="Sprite2D" type="Sprite2D" parent="ExitDoor" unique_id=297765495]
+position = Vector2(1730, 408)
+texture = ExtResource("9_jgkgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor" unique_id=1302251425]
+position = Vector2(1719, 462)
+shape = SubResource("RectangleShape2D_jgkgd")

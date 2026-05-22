@@ -39,3 +39,16 @@ func _shoot() -> void:
 	b.global_position = muzzle.global_position
 	b.direction = facing
 	get_tree().current_scene.add_child(b)
+
+signal died
+signal health_changed(new_health: int)
+
+@export var max_health: int = 3
+var health: int = max_health
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	health_changed.emit(health)
+	if health <= 0:
+		died.emit()
+		queue_free()

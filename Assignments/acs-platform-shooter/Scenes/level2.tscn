@@ -1,0 +1,127 @@
+[gd_scene format=3 uid="uid://dgnp5q5ivtrlc"]
+
+[ext_resource type="Script" uid="uid://cnapbrr77kde7" path="res://Scripts/level.gd" id="1_ng020"]
+[ext_resource type="PackedScene" uid="uid://ccxsk1ghg0wha" path="res://Scenes/game_over_screen.tscn" id="2_mtqcm"]
+[ext_resource type="Texture2D" uid="uid://c0n5yg0mn48pv" path="res://assets/bg/L3.png" id="2_vn2uo"]
+[ext_resource type="Texture2D" uid="uid://65ky414jckwq" path="res://assets/bg/L2.png" id="3_mtqcm"]
+[ext_resource type="PackedScene" uid="uid://ot6xhj38c7ew" path="res://Scenes/Player.tscn" id="4_mmf1u"]
+[ext_resource type="PackedScene" uid="uid://dm23vuqx6rxtd" path="res://Scenes/GroundBlock.tscn" id="5_vn460"]
+[ext_resource type="PackedScene" uid="uid://111o5l2kd3xt" path="res://Scenes/PickUp.tscn" id="6_r8hce"]
+[ext_resource type="PackedScene" uid="uid://dms1o6mbk7e3v" path="res://Scenes/Enemy.tscn" id="7_ca0bt"]
+[ext_resource type="PackedScene" uid="uid://qy3fitcarig8" path="res://Scenes/PauseMenu.tscn" id="8_yj6rp"]
+[ext_resource type="Texture2D" uid="uid://7b132wcfyxm3" path="res://assets/tiles/ExitDoor.png" id="9_orbd0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgkgd"]
+size = Vector2(130, 185)
+
+[node name="Level1" type="Node2D" unique_id=1415140812]
+script = ExtResource("1_ng020")
+next_level = ExtResource("2_mtqcm")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1276819627]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=264262081]
+motion_scale = Vector2(0.2, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=412971936]
+texture = ExtResource("2_vn2uo")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1249019519]
+motion_scale = Vector2(0.5, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1481326827]
+texture = ExtResource("3_mtqcm")
+
+[node name="Player" parent="." unique_id=1845266569 instance=ExtResource("4_mmf1u")]
+position = Vector2(568, 464)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1889172871]
+offset_left = 438.0
+offset_top = 216.0
+offset_right = 478.0
+offset_bottom = 256.0
+color = Color(1, 0, 1, 1)
+
+[node name="GroundBody" parent="." unique_id=631731404 instance=ExtResource("5_vn460")]
+position = Vector2(349, 466)
+
+[node name="GroundBody2" parent="." unique_id=953371264 instance=ExtResource("5_vn460")]
+position = Vector2(178, 467)
+
+[node name="GroundBody3" parent="." unique_id=795374166 instance=ExtResource("5_vn460")]
+position = Vector2(264, 466)
+
+[node name="GroundBody4" parent="." unique_id=556385803 instance=ExtResource("5_vn460")]
+position = Vector2(434, 465)
+
+[node name="GroundBody5" parent="." unique_id=1220664327 instance=ExtResource("5_vn460")]
+position = Vector2(1326, 584)
+
+[node name="GroundBody6" parent="." unique_id=823825179 instance=ExtResource("5_vn460")]
+position = Vector2(1155, 585)
+
+[node name="GroundBody7" parent="." unique_id=953106272 instance=ExtResource("5_vn460")]
+position = Vector2(1241, 584)
+
+[node name="GroundBody8" parent="." unique_id=1838089953 instance=ExtResource("5_vn460")]
+position = Vector2(1411, 583)
+
+[node name="GroundBody17" parent="." unique_id=520818690 instance=ExtResource("5_vn460")]
+position = Vector2(802, 499)
+
+[node name="GroundBody18" parent="." unique_id=1249043252 instance=ExtResource("5_vn460")]
+position = Vector2(631, 500)
+
+[node name="GroundBody19" parent="." unique_id=646076946 instance=ExtResource("5_vn460")]
+position = Vector2(717, 499)
+
+[node name="GroundBody20" parent="." unique_id=1035005108 instance=ExtResource("5_vn460")]
+position = Vector2(887, 498)
+
+[node name="GroundBody9" parent="." unique_id=2013472151 instance=ExtResource("5_vn460")]
+position = Vector2(1683, 433)
+
+[node name="GroundBody10" parent="." unique_id=1024530398 instance=ExtResource("5_vn460")]
+position = Vector2(1512, 434)
+
+[node name="GroundBody11" parent="." unique_id=2134204366 instance=ExtResource("5_vn460")]
+position = Vector2(1598, 433)
+
+[node name="GroundBody12" parent="." unique_id=1951075310 instance=ExtResource("5_vn460")]
+position = Vector2(1768, 432)
+
+[node name="GroundBody13" parent="." unique_id=1518529568 instance=ExtResource("5_vn460")]
+position = Vector2(2100, 469)
+
+[node name="GroundBody14" parent="." unique_id=1050425362 instance=ExtResource("5_vn460")]
+position = Vector2(1929, 470)
+
+[node name="GroundBody15" parent="." unique_id=669096915 instance=ExtResource("5_vn460")]
+position = Vector2(2015, 469)
+
+[node name="GroundBody16" parent="." unique_id=821993862 instance=ExtResource("5_vn460")]
+position = Vector2(2185, 468)
+
+[node name="Pickup" parent="." unique_id=1923191927 instance=ExtResource("6_r8hce")]
+position = Vector2(834, 337)
+
+[node name="Pickup2" parent="." unique_id=1096862337 instance=ExtResource("6_r8hce")]
+position = Vector2(1300, 298)
+
+[node name="Enemy" parent="." unique_id=1770841274 instance=ExtResource("7_ca0bt")]
+position = Vector2(1255, 380)
+
+[node name="Enemy2" parent="." unique_id=1858384483 instance=ExtResource("7_ca0bt")]
+position = Vector2(935, 384)
+
+[node name="PauseMenu" parent="." unique_id=1791208024 instance=ExtResource("8_yj6rp")]
+
+[node name="ExitDoor" type="Area2D" parent="." unique_id=168244952]
+
+[node name="Sprite2D" type="Sprite2D" parent="ExitDoor" unique_id=297765495]
+position = Vector2(2298, 397)
+texture = ExtResource("9_orbd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor" unique_id=1302251425]
+position = Vector2(2288, 444)
+shape = SubResource("RectangleShape2D_jgkgd")
